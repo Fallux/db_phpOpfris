@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="container">
-        
+        <a href="admin/admin_login.php">admin login</a>
 
 
 
