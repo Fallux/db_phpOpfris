@@ -1,6 +1,11 @@
 <?php
  include_once('include/db_connect.php');
  include_once('include/books.php');
+
+ $book = new Book;
+ $books = $book->fetch_all();
+
+//  print_r($books);
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +26,15 @@
     <a href="include/db_connect.php" class="">connection test</a>
     </header>
     <div id="container">
-
+    <ol>
+        <?php foreach ($books as $book) {?>
+        <li>
+            <a href="book.php?id=<?php echo $book['book_id']?>">
+            <?php echo $book['title']?>
+            </a>
+        </li>
+        <?php }?>
+    </ol>
 
 
     </div>
