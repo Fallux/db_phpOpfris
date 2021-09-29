@@ -1,4 +1,4 @@
-<?php include ('../verbinden/db_connect.php');
+<?php include ('../include/db_connect.php');
 echo "<br>"?>
 
 <!DOCTYPE html>
