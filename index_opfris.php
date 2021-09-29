@@ -22,14 +22,15 @@
 </head>
 <body>
     <header>
-    <a href="admin/admin_login.php" class="">admin login</a>
-    <a href="include/db_connect.php" class="">connection test</a>
+    <a href="index_opfris.php" class="headerLink">home</a>
+    <a href="admin/admin_login.php" class="headerLink">admin login</a>
+    <a href="include/db_connect.php" class="headerLink">connection test</a>
     </header>
-    <div id="container">
+    <div class="container">
     <ol>
         <?php foreach ($books as $book) {?>
         <li>
-            <a href="book.php?id=<?php echo $book['book_id']?>">
+            <a href="book_pagina.php?id=<?php echo $book['book_id']?>">
             <?php echo $book['title']?>
             </a>
         </li>

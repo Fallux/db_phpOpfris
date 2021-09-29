@@ -3,7 +3,19 @@ body{
 }
 header{
     font-family: 'Courier Prime', monospace;
-    float: right;
-    margin-right: 500px;
-    font-size: 400%;
+    float: left;
+    width: 100%;
+    font-size: 300%;
+    /* padding-left: 15%; */
+    /* padding-right: 15%; */
+    
+}
+.headerLink{
+    padding-left: 10%;
+}
+.container{
+    margin-top: 10%;
+}
+.dataText{
+    font-family: 'Merriweather', serif;
 }
