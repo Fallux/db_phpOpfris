@@ -1,3 +1,8 @@
+<?php
+ include_once('include/db_connect.php');
+ include_once('include/books.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
 <body>
     <header>
     <a href="admin/admin_login.php" class="">admin login</a>
-    <a href="verbinden/db_connect.php" class="">conection test</a>
+    <a href="include/db_connect.php" class="">connection test</a>
     </header>
     <div id="container">
 
