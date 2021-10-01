@@ -12,6 +12,22 @@ if(isset($_SESSION['logged_in'])) {
         $password = $_POST['password'];
         if (empty($email) or empty($password)) {
             $error = 'je moet ALLE velden invullen';
+        }else{
+            $query = $pdo->prepare("SELECT * FROM bibliotheek_leden WHERE email = ? AND password = ?");
+
+            $query->bindValue(1, $email);
+            $query->bindValue(2, $password);
+
+            $query->execute();
+
+            $num = $query->rowCount();
+            
+            if ($num == 1) {
+                // user entered correct details
+            }else {
+                // user entered false details
+                $error = 'Je gebruiksnaam of wachtwoord is verkeerd ingetikt.';
+            }
         }
     }
     ?>
