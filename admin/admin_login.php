@@ -5,15 +5,16 @@ include_once ('../include/db_connect.php');
 
 if(isset($_SESSION['logged_in'])) {
     //display index
+
 }else {
     //display login 
     if (isset($_POST['email'], $_POST['password'])) {
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
         if (empty($email) or empty($password)) {
             $error = 'je moet ALLE velden invullen';
         }else{
-            $query = $pdo->prepare("SELECT * FROM bibliotheek_leden WHERE email = ? AND password = ?");
+            $query = $pdo->prepare("SELECT * FROM `bibliotheek_leden` WHERE email = ? AND password = ?");
 
             $query->bindValue(1, $email);
             $query->bindValue(2, $password);
@@ -24,6 +25,10 @@ if(isset($_SESSION['logged_in'])) {
             
             if ($num == 1) {
                 // user entered correct details
+                $_SESSION['logged_in'] = true;
+                header('Location: ../index_opfris.php');
+                // echo "jfdvibafpbdpgbargbpidfbgvfbgkpsbjlbdkjbkldfkbKJFbdjfbjbfIbsdjfksdfkb";
+                exit();
             }else {
                 // user entered false details
                 $error = 'Je gebruiksnaam of wachtwoord is verkeerd ingetikt.';
