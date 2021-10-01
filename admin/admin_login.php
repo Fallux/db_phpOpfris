@@ -1,55 +1,64 @@
 <?php 
 
 session_start();
-
 include_once ('../include/db_connect.php');
 
 if(isset($_SESSION['logged_in'])) {
-//display index
-echo"testetst";
+    //display index
 } else {
+    //display login 
     if (isset($_POST['email'], $_POST['password'])) {
-        $admin_username  =  $_POST['email'];
-        $password  =  $_POST['password'];
-        
-        if (empty($admin_username) or empty ($password)) {
-            $error = 'Alle velden moet verplicht ingevuld zijn!';
+        $email      = $_POST['email'];
+        $password   = $_POST['password'];
+
+        if (empty($email) or empty($password)) {
+            $error = 'je moet ALLE velden invullen';
         }else{
-            $query = $pdo->prepare("SELECT * FROM `bibliotheek_leden` WHERE email = ? password = ?");
-            $query->bindValue(1, $mail);
+            $query = $pdo->prepare("SELECT * FROM bibliotheek_leden WHERE email = ? AND password = ?");
+
+            $query->bindValue(1, $email);
             $query->bindValue(2, $password);
 
             $query->execute();
 
             $num = $query->rowCount();
 
-            if ($num ==1) {
+            if ($num == 1) {
                 # user entered correct details
-            }else{
-                #user entered false details
-                $error = 'Incorrect Details';
+            } else {
+                # user entered false data
+                $error = 'U heeft de verkeerde gebruikersnaam of wachtwoord getypt';
             }
         }
     }
+    ?>
+
+    <html lang="en">
+    <head>
+        <title>Beheerder login</title>
+        <link rel="stylesheet" href="../style_opfris.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
+
+            <br>
+
+        <?php if (isset($error)) { ?>
+            <small style="color:#aa0000;"><?php echo $error; ?></small>
+            <br>
+            <?php } ?>
+
+            <form action="admin_login.php" method="post" autocomplete="off">
+                <input type="mail" name="email" placeholder="email" />
+                <input type="password" name="password" placeholder="password"/>
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+    </body>
+    </html>
+    <?php
 }
 
 ?>
-<html lang="en">
-<head>
-    <title>Beheerder login</title>
-    <link rel="stylesheet" href="../style_opfris.css">
-</head>
-<body>
-    <div class="container">
-    <br>
-        <?php if (isset($error)) { ?>
-            <h3 id="errorKleur"><?php echo $error; ?>hello world</h3>
-            <?php } ?>
-            <br>
-    <form action="admin_login.php" method="post"></form>
-    <input type="mail" name="e-mail" placeholder="e-mail">
-    <input type="password" name="wachtwoord" placeholder="Wachtwoord">
-    <input type="submit" value="login" />
-    </div>
-</body>
-</html>
+
