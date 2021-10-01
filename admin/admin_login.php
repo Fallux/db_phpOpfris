@@ -89,6 +89,7 @@ if(isset($_SESSION['logged_in'])) {
                 <input type="submit" value="Login" />
             </form>
         </div>
+        <h4><a href="boek_toevoegen.php">boek_toevoegen.php</a></h4>
     </body>
     </html>
 
