@@ -20,9 +20,9 @@ if(isset($_SESSION['logged_in'])) {
             <br>
 
             <ol>
-                <li><a href=""></a>boek toevoegen</li>
-                <li><a href=""></a>boeken wijzigen</li>
-                <li><a href=""></a></li>
+                <li><a href="create.php"></a>boek toevoegen</li>
+                <li><a href="update.php"></a>boek wijzigen</li>
+                <li><a href="logout.php"></a>logout</li>
             </ol>
         </div>
     </body>
@@ -36,15 +36,15 @@ if(isset($_SESSION['logged_in'])) {
 
 }else {
     //display login 
-    if (isset($_POST['email'], $_POST['password'])) {
-        $email = $_POST['email'];
+    if (isset($_POST['admin_username'], $_POST['password'])) {
+        $admin_username = $_POST['admin_username'];
         $password = md5($_POST['password']);
-        if (empty($email) or empty($password)) {
+        if (empty($admin_username) or empty($password)) {
             $error = 'je moet ALLE velden invullen';
         }else{
-            $query = $pdo->prepare("SELECT * FROM `bibliotheek_leden` WHERE email = ? AND password = ?");
+            $query = $pdo->prepare("SELECT * FROM `bibliotheekbeheerder` WHERE admin_username = ? AND password = ?");
 
-            $query->bindValue(1, $email);
+            $query->bindValue(1, $admin_username);
             $query->bindValue(2, $password);
 
             $query->execute();
@@ -84,7 +84,7 @@ if(isset($_SESSION['logged_in'])) {
             <?php } ?>
 
             <form action="admin_login.php" method="post" autocomplete="off">
-                <input type="text" name="email" placeholder="email" />
+                <input type="text" name="admin_username" placeholder="admin_username" />
                 <input type="password" name="password" placeholder="password" />
                 <input type="submit" value="Login" />
             </form>
