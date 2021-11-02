@@ -20,9 +20,9 @@ if(isset($_SESSION['logged_in'])) {
             <br>
 
             <ol>
-                <li><a href="create.php"></a>boek toevoegen</li>
-                <li><a href="update.php"></a>boek wijzigen</li>
-                <li><a href="logout.php"></a>logout</li>
+                <li><a href="add.php">boek toevoegen</a></li>
+                <li><a href="update.php">boek wijzigen</a></li>
+                <li><a href="logout.php">logout</a></li>
             </ol>
         </div>
     </body>
@@ -42,7 +42,8 @@ if(isset($_SESSION['logged_in'])) {
         if (empty($admin_username) or empty($password)) {
             $error = 'je moet ALLE velden invullen';
         }else{
-            $query = $pdo->prepare("SELECT * FROM `bibliotheekbeheerder` WHERE admin_username = ? AND password = ?");
+            //logt alleen in als je de ? symbolen vervangt met de gegevens van de database
+            $query = $pdo->prepare("SELECT * FROM `bibliotheekbeheerder` WHERE admin_username = 'gerald12' AND password = 1224");
 
             $query->bindValue(1, $admin_username);
             $query->bindValue(2, $password);
