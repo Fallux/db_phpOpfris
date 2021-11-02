@@ -6,7 +6,7 @@ include_once ('../include/books.php');
 
 if(isset($_SESSION['logged_in'])) {
     //display page
-    if (isset($_POST['submit'], $_POST['author'], $_POST['isbn13'], $_POST['format'], $_POST['publisher'], $_POST['pages'], $_POST['dimensions'], $_POST['overview'])) {
+    if (isset($_POST['submit']) && $_POST['submit'] != '') {
         $title      = $_POST['title'];
         $author     = $_POST['author'];
         $isbn13     = $_POST['isbn13'];
@@ -31,7 +31,6 @@ if(isset($_SESSION['logged_in'])) {
 
             $query->execute();
             if ($query->execute()) {
-                echo "er ging iets mis";
                 header('Location: ../index_opfris.php');
             }
            
