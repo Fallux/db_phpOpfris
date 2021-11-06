@@ -70,32 +70,6 @@ if(isset($_SESSION['logged_in'])) {
 
                         }
 
-
-
-                        
-                        // foreach ($columns as $key) {
-                            // $typeInput = "input";
-                            // $read = "";
-                            // $txtOrNum = "text";
-                            // if ($key == 'isbn13') {
-                            //     $read = "readonly";
-                            // }
-                            // if ($key == 'overview'){
-                            //     $typeInput = "textarea";
-                            // }
-                            // if ($key == 'pages') {
-                            //     $txtOrNum = "number";
-                            // }
-                            // echo '<b>' . $key .'</b> :<'.$typeInput.' type="' . $txtOrNum . '" name="'.$key.'" value="' . $$key . '" '.$read.'>';
-                            // if ($typeInput == "textarea") {
-                            //     echo $$key.'</textarea><br>';
-                            // } else{
-                            //     echo '<br>';
-                            // }
-                            // echo "<input type='text' name='" . $key . "' value ='" . $key . "'>"; 
-                        // }
-
-
                     }
                 }
             }
