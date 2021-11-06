@@ -6,7 +6,7 @@ include_once ('../include/books.php');
 
 if(isset($_SESSION['logged_in'])) {
     //display page
-    if (isset($_POST['submit']) && $_POST['submit'] != '') {
+    if (isset($_POST['title'], $_POST['author'], $_POST['isbn13'], $_POST['format'], $_POST['publisher'], $_POST['pages'], $_POST['dimensions'], $_POST['overview'])) {
         $title      = $_POST['title'];
         $author     = $_POST['author'];
         $isbn13     = $_POST['isbn13'];
@@ -19,7 +19,7 @@ if(isset($_SESSION['logged_in'])) {
         if (empty($title) OR empty($author) OR empty($isbn13) OR empty($format)OR empty($publisher)OR empty($pages)OR empty($dimensions)OR empty($overview)) {
             $error = "<u>het is leeg</u>";
         } else {
-            $query = $pdo->prepare("INSERT INTO books (title, author, isbn13, format, publisher, pages, dimensions, overview) VALUES (?, ?, ?, ?, ?, ?, ?, 1)");
+            $query = $pdo->prepare("INSERT INTO books (title, author, isbn13, format, publisher, pages, dimensions, overview) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $query->bindValue(1, $title);
             $query->bindValue(2, $author);
             $query->bindValue(3, $isbn13);
@@ -29,8 +29,9 @@ if(isset($_SESSION['logged_in'])) {
             $query->bindValue(7, $dimensions);
             $query->bindValue(8, $overview);
 
-            $query->execute();
-            if ($query->execute()) {
+            
+            $result = $query->execute();
+            if ($result) {
                 header('Location: ../index_opfris.php');
             }
            
@@ -67,7 +68,7 @@ if(isset($_SESSION['logged_in'])) {
                 <br>
                 <textarea name="content" id="" cols="50" rows="15" placeholder = "beschrijving"></textarea>
                 <br>
-                <input type="submit" value="Boek Toevoegen">
+                <input name="submit" type="submit" value="Boek Toevoegen">
                 
             </form>
         </div>
