@@ -39,55 +39,66 @@ if(isset($_SESSION['logged_in'])) {
     }
 ?>
 
-<html lang="en">
+    <html lang="en">
     <head>
         <title>Boek updaten</title>
         <link rel="stylesheet" href="../style_opfris.css"/>
         <link rel="shortcut icon" href="#"/>
     </head>
-    <form action="" method="POST">
-        <?php
-        if (isset($_GET['book_id']) && $_GET['book_id'] != '') {
-            $book_id = $_GET['book_id'];
+    <body>
+     <div class="container">
+        <form action="" method="POST">
+            <?php
+            if (isset($_GET['book_id']) && $_GET['book_id'] != '') {
+                $book_id = $_GET['book_id'];
 
-            $liqry = $pdo->prepare("SELECT `title`, `author`, `isbn13`, `format`, `publisher`, `pages`, `dimensions`, `overview` FROM books WHERE book_id = :book_id LIMIT 1;");
-            if($liqry === false) {
-                // echo mysqli_error($pdo);
-                echo "pdo error";
-            } else{
-                $liqry->bindParam(':book_id',$book_id);
-                // $liqry->bind_result($title, $author, $isbn13, $format, $publisher, $pages, $dimensions, $overview);
-                if($liqry->execute()){
-                    // $liqry->store_result();
-                    $result = $liqry->fetchAll();
-                    if($liqry->rowCount() == 1){
-                        
-                        //print_r(array_keys($result[0]));
-                        
-                        foreach ($result[0] as $key => $value) {
-                            if (!is_int($key)) {
-                                echo "<input type='text' name='" . $key . "'value ='" . $value . "'>" . "<br>"; 
-                                // print_r("key: " . $key . "<br>");
-                                // print_r("value: " . $value . "<br>");
+                $liqry = $pdo->prepare("SELECT `title`, `author`, `isbn13`, `format`, `publisher`, `pages`, `dimensions`, `overview` FROM books WHERE book_id = :book_id LIMIT 1;");
+                if($liqry === false) {
+                    // echo mysqli_error($pdo);
+                    echo "pdo error";
+                } else{
+                    $liqry->bindParam(':book_id',$book_id);
+                    // $liqry->bind_result($title, $author, $isbn13, $format, $publisher, $pages, $dimensions, $overview);
+                    if($liqry->execute()){
+                        // $liqry->store_result();
+                        $result = $liqry->fetchAll();
+                        if($liqry->rowCount() == 1){
+                            
+                            //print_r(array_keys($result[0]));
+                            
+                            foreach ($result[0] as $key => $value) {
+                                if (!is_int($key)) {
+                                    echo "<input type='text' name='" . $key . "'value ='" . $value . "'>" . "<br>"; 
+                                    // print_r("key: " . $key . "<br>");
+                                    // print_r("value: " . $value . "<br>");
+                                }
                             }
+                            $pdo = null;
                         }
-                        $pdo = null;
                     }
                 }
-            }
-            
+                
 
-        }
-        ?>
-        <br>
-        <input type="submit" name="submit" value="Save">
-        <a href="../index_opfris.php">Go back</a>
-    </form>
+            }
+            ?>
+            <br>
+            <input type="submit" name="submit" value="Save" class="submit">
+            <a href="../index_opfris.php">Go back</a>
+        </form>
+    </div>
 <?php
 }
 else{
-    echo "you must in as admin";
-    header('Refresh: 2; ../index_opfris.php');
+?>
+    <html lang="en">
+    <head>
+        <title>Boek updaten</title>
+        <link rel="stylesheet" href="../style_opfris.css"/>
+        <link rel="shortcut icon" href="#"/>
+    </head>
+    <small id="mustB_admin">You must be logged in as admin</small>
+    <?php
+    header('Refresh: 2.2; ../index_opfris.php');
 
 }
     ?>

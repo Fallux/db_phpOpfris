@@ -1,31 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 body{
     background-color: #fad390;
 }
 header{
     font-family: 'Courier Prime', monospace;
+    background-color: white;
     float: left;
     width: 100%;
-    font-size: 300%;
+    font-size: 175%;
     text-align: center;
-    padding-bottom: 2%;
+    margin-bottom: 2%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
     
 }
 .headerLink{
-    padding-left: 10%;
+    color: #62229e;
+    border-left: solid;
+    border-right: solid;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.headerLink:hover{
+    background-color: rgba(219, 219, 219, 0.109);
+    color: #ff00dd
 }
 .container{
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 37%;
+    font-size: 30px;
+}
+.bookData{
+    color: blue;
+    font-size: 21px;
+}
+.bookData:hover{
+    text-decoration: underline;
 }
 .dataText{
     font-family: 'Merriweather', serif;
+    padding-top: 15px;
+    margin-right: 5%;
+    font-size: 25px;
+}
+a{
+    text-decoration: none;
+}
+.containerAdminLog{
+    width: 240px;
+    margin-top: 10%;
+    margin-left: 35%;
+    padding: 100px;
+    font-size: 23px;
+    border: 1px black solid;
+    border-radius: 3px;
+}
+.loginForm{
+    margin-top: 8px;
+font-size: 20px;
+}
+#adminMenu{
+    width: 50%;
+    margin-top: 10%;
+    margin-left: 25%;
+}
+.submit{
+    margin-top: 10px;
+    margin-left: 200px;
+    font-size: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #f2f2f2;
+    border: 1px black solid;
+}
+#submit:hover{
+    cursor: pointer;
+    background-color: #ffffff;
 }
 #errorKleur{
     color: #aa0000;
 }
 #mustB_admin{
     color: #ec2f2f;
-    font-size: 20px;
+    font-size: 80px;
     text-align: center;
   
 }

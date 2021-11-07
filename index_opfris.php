@@ -30,8 +30,8 @@
     <ol>
         <?php foreach ($books as $book) {?>
         <li>
-            <a href="book_pagina.php?id=<?php echo $book['book_id']?>">
-            <?php echo $book['title']?>
+            <a class="bookData" href="book_pagina.php?id=<?php echo $book['book_id']?>">
+            <?php echo $book['title'] . "<br>" . "</br>"?>
             </a>
         </li>
         <?php }?>

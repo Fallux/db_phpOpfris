@@ -16,16 +16,15 @@ if(isset($_SESSION['logged_in'])) {
         <link rel="shortcut icon" href="#"/>
     </head>
     <body>
+        <header id="adminMenu">
+                <h3 id="note">update de boeken via home</h3>
+                <a href="../index_opfris.php" class="headerLink">home</a>
+                <a href="add.php" class="headerLink">boek toevoegen</a>
+                <a href="logout.php" class="headerLink">logout</a>
+        </header>
         <div class="container">
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
-            <br>
-
-            <ol>
-                <li><a href="add.php">boek toevoegen</a></li>
-                <li><a href="update.php">boek wijzigen</a></li>
-                <li><a href="logout.php">logout</a></li>
-                <li><a href="../index_opfris.php">home</a></li>
-            </ol>
+            
         </div>
     </body>
     </html>
@@ -43,7 +42,7 @@ if(isset($_SESSION['logged_in'])) {
         $password = md5 ($_POST['password']);
         // echo md5('1234');
         if (empty($admin_username) or empty($password)) {
-            $error = 'je moet ALLE velden invullen';
+            $error = 'Je moet ALLE velden invullen';
         }else{
             //logt alleen in als je de ? symbolen vervangt met de gegevens van de database
             $query = $pdo->prepare("SELECT * FROM `bibliotheekbeheerder` WHERE admin_username = ? AND password = ?");
@@ -77,20 +76,20 @@ if(isset($_SESSION['logged_in'])) {
         <link rel="shortcut icon" href="#"/>
     </head>
     <body>
-        <div class="container">
+        <div class="containerAdminLog">
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
 
-            <br>
             <p><a href="../index_opfris.php">home</a></p>
         <?php if (isset($error)) { ?>
             <small style="color:#aa0000;"><?php echo $error; ?></small>
             <br>
             <?php } ?>
 
-            <form action="admin_login.php" method="post" autocomplete="off">
-                <input type="text" name="admin_username" placeholder="admin_username" />
-                <input type="password" name="password" placeholder="password" />
-                <input type="submit" value="Login" />
+            <form action="admin_login.php" method="post" autocomplete="off" id="loginForm" />
+                <input type="text" name="admin_username" placeholder="admin_username"  class="loginForm" />
+                <input type="password" name="password" placeholder="password"  class="loginForm" />
+                <br>
+                <input type="submit" value="Login" class="submit" />
             </form>
         </div>
       
