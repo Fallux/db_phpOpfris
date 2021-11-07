@@ -13,7 +13,7 @@ if(isset($_SESSION['logged_in'])) {
         $pages      = $_POST['pages'];
         $dimensions = $_POST['dimensions'];
         $overview   = $_POST['overview'];
-        $query1 = $pdo->prepare("UPDATE books SET `title` = :title, `author`= :author, `format` = :format, `publisher` = :publisher, `pages` = :pages, `dimensions` = :dimensions, `overview` = :overview WHERE isbn13 = :isbn13 LIMIT 1;");
+        $query1 = $pdo->prepare("UPDATE books SET `title` = :title, `author`= :author, `isbn13` = :isbn13, `format` = :format, `publisher` = :publisher, `pages` = :pages, `dimensions` = :dimensions, `overview` = :overview WHERE isbn13 = :isbn13 LIMIT 1;");
         if ($query1 === false) {
             // echo mysqli_error($pdo);
             echo "pdo error";
