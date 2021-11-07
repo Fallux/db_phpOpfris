@@ -86,6 +86,8 @@ if(isset($_SESSION['logged_in'])) {
 <?php
 }
 else{
-    header('Location: ../index_opfris.php');
+    echo "you must in as admin";
+    header('Refresh: 2; ../index_opfris.php');
+
 }
     ?>

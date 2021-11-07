@@ -28,6 +28,12 @@ if (isset($_GET['id'])) {
         <a href="index_opfris.php">home</a>
     <a href="admin/admin_login.php" class="">admin login</a>
     <a href="include/db_connect.php" class="">connection test</a>
+    <?php if(isset($_SESSION['logged_in'])){
+    ?>
+    <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update</a></button>
+    <?php } else { ?>
+        <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update blip blop</a></button>   
+    <?php } ?>
     </header>
     <div class="container">
     <h2 class="dataText">Boek ID: <?php echo $data ['book_id']; ?></h2>
@@ -40,7 +46,6 @@ if (isset($_GET['id'])) {
     <h2 class="dataText">Afmeting: <?php echo $data ['dimensions'];?></h2>
     <h2 class="dataText">Beschrijving: <?php echo $data ['overview'];?></h2>
     </div>
-    <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update</a></button>
 </body>
 </html>
 

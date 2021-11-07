@@ -14,7 +14,7 @@ if(isset($_SESSION['logged_in'])) {
         $publisher  = $_POST['publisher'];
         $pages      = $_POST['pages'];
         $dimensions = $_POST['dimensions'];
-        $overview   = $_POST['overview'];
+        $overview   = nl2br($_POST['overview']);
 
         if (empty($title) OR empty($author) OR empty($isbn13) OR empty($format)OR empty($publisher)OR empty($pages)OR empty($dimensions)OR empty($overview)) {
             $error = "<u>het is leeg</u>";
@@ -48,25 +48,23 @@ if(isset($_SESSION['logged_in'])) {
     <body>
         <div class="container">
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
-            <br>
-
             <h3>boek toevoegen</h3>
-            <h4><a href="../index_opfris.php">terug</a></h4>
+            <h4><a href="../index_opfris.php">home</a></h4>
+            <h4><a href="admin_login.php">admin menu</a></h4>
             <?php if (isset($error)) { ?>
             <small style="color:#aa0000;"><?php echo $error; ?></small>
             <br>
             <?php } ?>
             <form action="add.php" method="post" autocomplete="off">
                 <input type="text" name="title" placeholder="Titel">
-                <input type="text" name="author" placeholder="Schrijver">
-                <input type="text" name="isbn13" placeholder="isbn13">
-                <input type="text" name="format" placeholder="format">
-                <input type="text" name="publisher" placeholder="publisher">
-                <input type="text" name="pages" placeholder="pages">
-                <input type="text" name="dimensions" placeholder="dimensions">
-                <input type="text" name="overview" placeholder="overview">
                 <br>
-                <textarea name="content" id="" cols="50" rows="15" placeholder = "beschrijving"></textarea>
+                <input type="text" name="author" placeholder="Schrijver"><br>
+                <input type="text" name="isbn13" placeholder="isbn13"><br>
+                <input type="text" name="format" placeholder="format"><br>
+                <input type="text" name="publisher" placeholder="publisher"><br>
+                <input type="text" name="pages" placeholder="pages"><br>
+                <input type="text" name="dimensions" placeholder="dimensions"><br>
+                <textarea name="overview" id="" cols="50" rows="15" placeholder = "overview"></textarea>
                 <br>
                 <input name="submit" type="submit" value="Boek Toevoegen">
                 

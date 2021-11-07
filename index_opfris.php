@@ -25,7 +25,6 @@
     <a href="index_opfris.php" class="headerLink">home</a>
     <a href="admin/admin_login.php" class="headerLink">admin login</a>
     <a href="include/db_connect.php" class="headerLink">connection test</a>
-    <h4><a href="admin/boek_toevoegen.php">boek_toevoegen.php</a></h4>
     </header>
     <div class="container">
     <ol>

@@ -5,6 +5,7 @@ include_once ('../include/db_connect.php');
 
 if(isset($_SESSION['logged_in'])) {
     //display index
+    // header('Refresh: 2; index_opfris.php');
     ?>
 
 
@@ -23,6 +24,7 @@ if(isset($_SESSION['logged_in'])) {
                 <li><a href="add.php">boek toevoegen</a></li>
                 <li><a href="update.php">boek wijzigen</a></li>
                 <li><a href="logout.php">logout</a></li>
+                <li><a href="../index_opfris.php">home</a></li>
             </ol>
         </div>
     </body>
@@ -38,12 +40,13 @@ if(isset($_SESSION['logged_in'])) {
     //display login 
     if (isset($_POST['admin_username'], $_POST['password'])) {
         $admin_username = $_POST['admin_username'];
-        $password = md5($_POST['password']);
+        $password = md5 ($_POST['password']);
+        // echo md5('1234');
         if (empty($admin_username) or empty($password)) {
             $error = 'je moet ALLE velden invullen';
         }else{
             //logt alleen in als je de ? symbolen vervangt met de gegevens van de database
-            $query = $pdo->prepare("SELECT * FROM `bibliotheekbeheerder` WHERE admin_username = 'gerald12' AND password = 1224");
+            $query = $pdo->prepare("SELECT * FROM `bibliotheekbeheerder` WHERE admin_username = ? AND password = ?");
 
             $query->bindValue(1, $admin_username);
             $query->bindValue(2, $password);
@@ -78,7 +81,7 @@ if(isset($_SESSION['logged_in'])) {
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
 
             <br>
-
+            <p><a href="../index_opfris.php">home</a></p>
         <?php if (isset($error)) { ?>
             <small style="color:#aa0000;"><?php echo $error; ?></small>
             <br>
@@ -90,7 +93,7 @@ if(isset($_SESSION['logged_in'])) {
                 <input type="submit" value="Login" />
             </form>
         </div>
-        <h4><a href="boek_toevoegen.php">boek_toevoegen.php</a></h4>
+      
     </body>
     </html>
 

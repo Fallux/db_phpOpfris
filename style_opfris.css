@@ -6,7 +6,7 @@ header{
     float: left;
     width: 100%;
     font-size: 300%;
-    /* padding-left: 15%; */
+    text-align: center;
     /* padding-right: 15%; */
     
 }
@@ -14,7 +14,8 @@ header{
     padding-left: 10%;
 }
 .container{
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-left: 5%;
 }
 .dataText{
     font-family: 'Merriweather', serif;
