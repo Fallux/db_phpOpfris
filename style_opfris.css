@@ -7,7 +7,7 @@ header{
     width: 100%;
     font-size: 300%;
     text-align: center;
-    /* padding-right: 15%; */
+    padding-bottom: 2%;
     
 }
 .headerLink{
@@ -22,4 +22,10 @@ header{
 }
 #errorKleur{
     color: #aa0000;
+}
+#mustB_admin{
+    color: #ec2f2f;
+    font-size: 20px;
+    text-align: center;
+  
 }
