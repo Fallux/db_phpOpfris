@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <title><?php echo $data ['title'];?>lenen</title>
+    <title><?php echo $data ['title'] . " ";?>lenen</title>
 </head>
 <body>
     <header>
@@ -30,7 +30,8 @@ if (isset($_GET['id'])) {
     <a href="include/db_connect.php" class="">connection test</a>
     </header>
     <div class="container">
-    <h2 class="dataText"><?php echo $data ['book_id'] . " - ". $data ['title'] ;?></h2>
+    <h2 class="dataText">Boek ID: <?php echo $data ['book_id']; ?></h2>
+    <h2 class="dataText">Titel: <?php echo $data ['title'] ;?></h2>
     <h2 class="dataText">Auteur: <?php echo $data ['author'];?></h2>
     <h2 class="dataText">Isbn: <?php echo $data ['isbn13'];?></h2>
     <h2 class="dataText">Format: <?php echo $data ['format'];?></h2>
@@ -38,9 +39,8 @@ if (isset($_GET['id'])) {
     <h2 class="dataText">Aantal pagina's: <?php echo $data ['pages'];?></h2>
     <h2 class="dataText">Afmeting: <?php echo $data ['dimensions'];?></h2>
     <h2 class="dataText">Beschrijving: <?php echo $data ['overview'];?></h2>
-
-
     </div>
+    <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update</a></button>
 </body>
 </html>
 

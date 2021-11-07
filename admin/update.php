@@ -13,7 +13,7 @@ if(isset($_SESSION['logged_in'])) {
         $pages      = $_POST['pages'];
         $dimensions = $_POST['dimensions'];
         $overview   = $_POST['overview'];
-        $query1 = prepare("UPDATE books SET `title` = :title, `author`= :author, `format` = :format, `publisher` = :publisher, `pages` = :pages, `dimensions` = :dimensions, `overview` = :overview WHERE isbn13 = :isbn13 LIMIT 1;");
+        $query1 = $pdo->prepare("UPDATE books SET `title` = :title, `author`= :author, `format` = :format, `publisher` = :publisher, `pages` = :pages, `dimensions` = :dimensions, `overview` = :overview WHERE isbn13 = :isbn13 LIMIT 1;");
         if ($query1 === false) {
             // echo mysqli_error($pdo);
             echo "pdo error";
@@ -33,9 +33,9 @@ if(isset($_SESSION['logged_in'])) {
             echo "pdo error";
         } else {
             echo '<div style="border: 2px solid red">Edited product</div>';
-            header('Refresh: 2; index.php');
+            // header('Refresh: 2; index_opfris.php');
         }
-        $query1->close();
+        $liqry = null;
     }
 ?>
 
@@ -47,33 +47,35 @@ if(isset($_SESSION['logged_in'])) {
     </head>
     <form action="" method="POST">
         <?php
-        if (isset($_GET['isbn13']) && $_GET['isbn13'] != '') {
-            $isbn13 = $_GET['isbn13'];
+        if (isset($_GET['book_id']) && $_GET['book_id'] != '') {
+            $book_id = $_GET['book_id'];
 
-            $liqry = $pdo->prepare("SELECT `title`, `author`, `isbn13`, `format`, `publisher`, `pages`, `dimensions`, `overview` FROM books WHERE isbn13 = :isbn13 LIMIT 1;");
+            $liqry = $pdo->prepare("SELECT `title`, `author`, `isbn13`, `format`, `publisher`, `pages`, `dimensions`, `overview` FROM books WHERE book_id = :book_id LIMIT 1;");
             if($liqry === false) {
                 // echo mysqli_error($pdo);
                 echo "pdo error";
             } else{
-                $liqry->bindParam(':isbn13',$isbn13);
+                $liqry->bindParam(':book_id',$book_id);
                 // $liqry->bind_result($title, $author, $isbn13, $format, $publisher, $pages, $dimensions, $overview);
                 if($liqry->execute()){
                     // $liqry->store_result();
                     $result = $liqry->fetchAll();
                     if($liqry->rowCount() == 1){
-                        $columns = array('title', 'author', 'isbn13', 'format', 'publisher', 'pages', 'dimensions', 'overview');
                         
-                        // print_r($result);
+                        //print_r(array_keys($result[0]));
                         
                         foreach ($result[0] as $key => $value) {
-                        echo "<input type='text' name='" . $key . "' value ='" . $value . "'>"; 
-
+                            if (!is_int($key)) {
+                                echo "<input type='text' name='" . $key . "'value ='" . $value . "'>" . "<br>"; 
+                                // print_r("key: " . $key . "<br>");
+                                // print_r("value: " . $value . "<br>");
+                            }
                         }
-
+                        $pdo = null;
                     }
                 }
             }
-            $pdo = null;
+            
 
         }
         ?>
@@ -82,7 +84,8 @@ if(isset($_SESSION['logged_in'])) {
         <a href="../index_opfris.php">Go back</a>
     </form>
 <?php
-}else{
+}
+else{
     header('Location: ../index_opfris.php');
 }
     ?>
