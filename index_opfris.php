@@ -24,7 +24,7 @@
     <header>
     <a href="index_opfris.php" class="headerLink">home</a>
     <a href="admin/admin_login.php" class="headerLink">admin login</a>
-    <a href="include/db_connect.php" class="headerLink">connection test</a>
+    <!-- <a href="include/db_connect.php" class="headerLink">connection test</a> -->
     </header>
     <div class="container">
     <ol>

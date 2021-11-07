@@ -27,12 +27,11 @@ if (isset($_GET['id'])) {
     <header>
         <a href="index_opfris.php">home</a>
     <a href="admin/admin_login.php" class="">admin login</a>
-    <a href="include/db_connect.php" class="">connection test</a>
     <?php if(isset($_SESSION['logged_in'])){
     ?>
     <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update</a></button>
     <?php } else { ?>
-        <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update blip blop</a></button>   
+        <a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update blip blop</a>  
     <?php } ?>
     </header>
     <div class="container">
