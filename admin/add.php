@@ -46,11 +46,13 @@ if(isset($_SESSION['logged_in'])) {
         <link rel="shortcut icon" href="#"/>
     </head>
     <body>
+        <header>
+            <h3>boek <span id="toevoegen">toevoegen</span> page</h3>
+            <a href="../index_opfris.php" class="headerLink">home</a>   
+            <a href="admin_login.php" class="headerLink">admin menu</a> 
+        </header>   
         <div class="container">
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
-            <h3>boek toevoegen</h3>
-            <h4><a href="../index_opfris.php">home</a></h4>
-            <h4><a href="admin_login.php">admin menu</a></h4>
             <?php if (isset($error)) { ?>
             <small style="color:#aa0000;"><?php echo $error; ?></small>
             <br>
@@ -64,9 +66,9 @@ if(isset($_SESSION['logged_in'])) {
                 <input type="text" name="publisher" placeholder="publisher"><br>
                 <input type="text" name="pages" placeholder="pages"><br>
                 <input type="text" name="dimensions" placeholder="dimensions"><br>
-                <textarea name="overview" id="" cols="50" rows="15" placeholder = "overview"></textarea>
+                <textarea name="overview" id="" cols="30" rows="10" placeholder = "overview"></textarea>
                 <br>
-                <input name="submit" type="submit" value="Boek Toevoegen">
+                <input name="submit" type="submit" value="Boek Toevoegen" class="submit" >
                 
             </form>
         </div>

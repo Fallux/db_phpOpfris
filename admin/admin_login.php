@@ -102,7 +102,7 @@ if(isset($_SESSION['logged_in'])) {
             <br>
             <?php } ?>
 
-            <form action="admin_login.php" method="post" autocomplete="off" id="loginForm" />
+            <form action="admin_login.php" method="post" autocomplete="off"/>
                 <input type="text" name="admin_username" placeholder="admin_username"  class="loginForm" />
                 <input type="password" name="password" placeholder="password"  class="loginForm" />
                 <br>

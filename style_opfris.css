@@ -64,13 +64,31 @@ a{
     border: 1px black solid;
     border-radius: 3px;
 }
-.loginForm{
-    margin-top: 8px;
-font-size: 20px;
+h3{
+    padding-bottom: 0.5%;
+}
+#toevoegen{
+    color: lime;
+}
+#update{
+    color: orange;
+}
+input{
+    margin-bottom: 8px;
+    font-size: 20px;
+    padding-left: 1%;
+}
+textarea{
+    font-size: 20px;
+    padding-left: 1%;
 }
 #homeAdmin:hover{
     color: #ff00dd;
 }
+.c_u_Form{
+    font-size: 50px;
+}
+
 .submit{
     margin-top: 10px;
     margin-left: 200px;

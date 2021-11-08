@@ -48,8 +48,13 @@ if(isset($_SESSION['logged_in'])) {
         <link rel="shortcut icon" href="#"/>
     </head>
     <body>
+    <header>
+            <h3>boek <span id="update">updaten</span> page</h3>
+            <a href="../index_opfris.php" class="headerLink">home</a>   
+            <a href="admin_login.php" class="headerLink">admin menu</a> 
+    </header>  
      <div class="container">
-        <form action="" method="POST">
+        <form action="" method="POST" class="c_u_Form">
             <?php
             if (isset($_GET['book_id']) && $_GET['book_id'] != '') {
                 $book_id = $_GET['book_id'];
@@ -70,9 +75,8 @@ if(isset($_SESSION['logged_in'])) {
                             
                             foreach ($result[0] as $key => $value) {
                                 if (!is_int($key)) {
-                                    echo "<input type='text' name='" . $key . "'value ='" . $value . "'>" . "<br>"; 
-                                    // print_r("key: " . $key . "<br>");
-                                    // print_r("value: " . $value . "<br>");
+                                    echo "<input type='text' name='" . $key . "'value ='" . $value . "' class = 'overview'>" . "<br>"; 
+                                                                        
                                 }
                             }
                             $pdo = null;
@@ -85,7 +89,6 @@ if(isset($_SESSION['logged_in'])) {
             ?>
             <br>
             <input type="submit" name="submit" value="Save" class="submit">
-            <a href="admin_login.php">Go back</a>
         </form>
     </div>
 <?php
