@@ -40,17 +40,23 @@ header{
 .bookData:hover{
     text-decoration: underline;
 }
-.dataText{
+.dataTitle{
     font-family: 'Merriweather', serif;
     padding-top: 15px;
     margin-right: 5%;
     font-size: 25px;
+    font-weight: 900;
+}
+.dataText{
+    color: darkcyan;
+    font-weight: 500;
 }
 a{
     text-decoration: none;
 }
 .containerAdminLog{
     width: 240px;
+    background-color: blanchedalmond;
     margin-top: 10%;
     margin-left: 35%;
     padding: 100px;
@@ -61,6 +67,9 @@ a{
 .loginForm{
     margin-top: 8px;
 font-size: 20px;
+}
+#homeAdmin:hover{
+    color: #ff00dd;
 }
 #adminMenu{
     width: 50%;

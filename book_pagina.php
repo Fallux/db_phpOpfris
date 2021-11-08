@@ -36,15 +36,15 @@ if (isset($_GET['id'])) {
     <?php } ?>
     </header>
     <div class="container">
-    <h2 class="dataText">Boek ID: <?php echo $data ['book_id']; ?></h2>
-    <h2 class="dataText">Titel: <?php echo $data ['title'] ;?></h2>
-    <h2 class="dataText">Auteur: <?php echo $data ['author'];?></h2>
-    <h2 class="dataText">Isbn: <?php echo $data ['isbn13'];?></h2>
-    <h2 class="dataText">Format: <?php echo $data ['format'];?></h2>
-    <h2 class="dataText">Uitgeverij: <?php echo $data ['publisher'];?></h2>
-    <h2 class="dataText">Aantal pagina's: <?php echo $data ['pages'];?></h2>
-    <h2 class="dataText">Afmeting: <?php echo $data ['dimensions'];?></h2>
-    <h2 class="dataText">Beschrijving: <?php echo $data ['overview'];?></h2>
+    <h2 class="dataTitle">Boek ID: <?php echo "<span class='dataText'>" . $data ['book_id'] . "</span>";?></h2>
+    <h2 class="dataTitle">Titel: <?php echo "<span class='dataText'>" . $data ['title'] . "</span>";?></h2>
+    <h2 class="dataTitle">Auteur: <?php echo "<span class='dataText'>" . $data ['author'] . "</span>";?></h2>
+    <h2 class="dataTitle">Isbn: <?php echo "<span class='dataText'>" . $data ['isbn13'] . "</span>";?></h2>
+    <h2 class="dataTitle">Format: <?php echo "<span class='dataText'>" . $data ['format'] . "</span>";?></h2>
+    <h2 class="dataTitle">Uitgeverij: <?php echo "<span class='dataText'>" . $data ['publisher'] . "</span>";?></h2>
+    <h2 class="dataTitle">Aantal pagina's: <?php echo "<span class='dataText'>" . $data ['pages'] . "</span>";?></h2>
+    <h2 class="dataTitle">Afmeting: <?php echo "<span class='dataText'>" . $data ['dimensions'] . "</span>";?></h2>
+    <h2 class="dataTitle">Beschrijving: <?php echo "<span class='dataText'>" . $data ['overview'] . "</span>";?></h2>
     </div>
 </body>
 </html>

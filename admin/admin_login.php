@@ -79,7 +79,7 @@ if(isset($_SESSION['logged_in'])) {
         <div class="containerAdminLog">
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
 
-            <p><a href="../index_opfris.php">home</a></p>
+            <p><a href="../index_opfris.php" id="homeAdmin">home</a></p>
         <?php if (isset($error)) { ?>
             <small style="color:#aa0000;"><?php echo $error; ?></small>
             <br>

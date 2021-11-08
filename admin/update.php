@@ -98,7 +98,7 @@ else{
     </head>
     <small id="mustB_admin">You must be logged in as admin</small>
     <?php
-    header('Refresh: 2.2; ../index_opfris.php');
+    header('Refresh: 2.2; ../book_pagina.php');
 
 }
     ?>
