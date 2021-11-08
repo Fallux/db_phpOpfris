@@ -2,6 +2,7 @@
 session_start();
 include_once ('../include/db_connect.php');
 include_once ('../include/books.php');
+
 if(isset($_SESSION['logged_in'])) {
     //display page
     if (isset($_POST['title'], $_POST['author'], $_POST['isbn13'], $_POST['format'], $_POST['publisher'], $_POST['pages'], $_POST['dimensions'], $_POST['overview'])) {
@@ -32,8 +33,9 @@ if(isset($_SESSION['logged_in'])) {
             // echo mysqli_error($pdo);
             echo "pdo error";
         } else {
-            echo '<div style="border: 2px solid red">Edited product</div>';
-            // header('Refresh: 2; index_opfris.php');
+            // echo '<div style="border: 2px solid red">Edited product</div>';
+            header('Location: ../index_opfris.php');
+            
         }
         $liqry = null;
     }
@@ -83,7 +85,7 @@ if(isset($_SESSION['logged_in'])) {
             ?>
             <br>
             <input type="submit" name="submit" value="Save" class="submit">
-            <a href="../index_opfris.php">Go back</a>
+            <a href="admin_login.php">Go back</a>
         </form>
     </div>
 <?php

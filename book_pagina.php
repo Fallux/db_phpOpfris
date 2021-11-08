@@ -28,12 +28,8 @@ if (isset($_GET['id'])) {
         <a href="index_opfris.php" class="headerLink">home</a>
         <a href="admin/admin_login.php" class="headerLink">admin login</a>
 
-    <?php if(isset($_SESSION['logged_in'])){
-    ?>
-    <button><a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update</a></button>
-    <?php } else { ?>
-        <a href="admin/update.php?book_id=<?php echo $data['book_id']?>">update boek</a>  
-    <?php } ?>
+    
+        <a href="admin/update.php?book_id=<?php echo $data['book_id']?>" class="headerLink">update boek</a>  
     </header>
     <div class="container">
     <h2 class="dataTitle">Boek ID: <?php echo "<span class='dataText'>" . $data ['book_id'] . "</span>";?></h2>

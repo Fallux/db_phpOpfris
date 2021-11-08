@@ -2,9 +2,15 @@
 
 session_start();
 include_once ('../include/db_connect.php');
-
+include_once('../include/books.php');
 if(isset($_SESSION['logged_in'])) {
     //display index
+    $book = new Book;
+    $books = $book->fetch_all();
+    // if (isset($_GET['id'])) {
+    //     $id = $_GET ['id'];
+    //     $data = $book->fetch_data($id);
+
     // header('Refresh: 2; index_opfris.php');
     ?>
 
@@ -16,14 +22,25 @@ if(isset($_SESSION['logged_in'])) {
         <link rel="shortcut icon" href="#"/>
     </head>
     <body>
-        <header id="adminMenu">
-                <h3 id="note">update de boeken via home</h3>
+        <header>
+                <h3 id="note">Admin Panel</h3>
                 <a href="../index_opfris.php" class="headerLink">home</a>
                 <a href="add.php" class="headerLink">boek toevoegen</a>
                 <a href="logout.php" class="headerLink">logout</a>
         </header>
         <div class="container">
             <!-- <a href="index_opfris.php" id="logo">CMS</a> -->
+            <ol>
+            <?php foreach ($books as $book) {?>
+                <li>
+                    <a class="bookData" href="../book_pagina.php?id=<?php echo $book['book_id']?>">
+                     <?php echo $book['title']?></a>
+                     <button><a href="update.php?book_id=<?php echo $book['book_id']?>" class="upDateBut">update boek</a></button>
+                    
+                    
+                </li>
+            <?php }?>
+             </ol>
             
         </div>
     </body>

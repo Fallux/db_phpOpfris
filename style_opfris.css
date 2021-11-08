@@ -71,11 +71,6 @@ font-size: 20px;
 #homeAdmin:hover{
     color: #ff00dd;
 }
-#adminMenu{
-    width: 50%;
-    margin-top: 10%;
-    margin-left: 25%;
-}
 .submit{
     margin-top: 10px;
     margin-left: 200px;
@@ -88,6 +83,18 @@ font-size: 20px;
 #submit:hover{
     cursor: pointer;
     background-color: #ffffff;
+}
+.upDateBut:link{
+    font-family: 'Courier Prime', monospace;
+    font-weight: bolder;
+    color: orange;
+    background-color: white;
+    font-size: larger;
+}
+.upDateBut:visited{
+    font-family: 'Courier Prime', monospace;
+    font-weight: bolder;
+    color: orange;
 }
 #errorKleur{
     color: #aa0000;
