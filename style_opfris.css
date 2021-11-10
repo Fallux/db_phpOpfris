@@ -32,6 +32,7 @@ header{
     margin-top: 5%;
     margin-left: 37%;
     font-size: 30px;
+ 
 }
 .bookData{
     color: blue;
@@ -88,7 +89,17 @@ textarea{
 .c_u_Form{
     font-size: 50px;
 }
-
+.overview:nth-child(13){
+    width: 25%;
+    padding-right: 10px;
+    /* height: 10px; */
+}
+.overview:nth-child(15){
+    width: 50%;
+    padding-right: 10px;
+    /* height: 10px; */
+    float: left;
+}
 .submit{
     margin-top: 10px;
     margin-left: 200px;
